@@ -1,10 +1,4 @@
-<?php 
-
-	#if not empty
-
-	#if integer
-
-	#if length 
+<?php
 
 	const arr_requirements = [
 
