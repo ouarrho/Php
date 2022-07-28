@@ -4,25 +4,31 @@
 
 		'functions' => [
 
+			'authentications', 
+
 			'dates', 
-			
-			'others', 
+
+			'inputs',
+
+			'queries-delete',
+
+			'queries-insert',
+
+			'queries-select',
+
+			'queries-update', 
 			
 			'sql', 
-			
-			'sqlAuthentications', 
-			
-			'sqlInsertions', 
-			
-			'sqlQueries', 
-			
-			'sqlSelections', 
-			
-			'sqlUpdates', 
-			
-			'userInfos', 
 
-			'variables' 
+			'sql-delete', 
+
+			'sql-insert', 
+
+			'sql-select', 
+			
+			'sql-update', 
+			
+			'user-infos'
 
 		],
 
