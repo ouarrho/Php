@@ -1,10 +1,22 @@
 <?php
 
-	$arraySources = get_included_files();
+	DEFINE( 'included_files', get_included_files() );
 
-	$source = $arraySources[0];
+	DEFINE( 'targeted_path' , included_files[ 0 ] );
 
-	echo '<h1>started...</h1>';
+	DEFINE( 'explode_path', explode( '\\', targeted_path ) );
+
+	DEFINE( 'targeted_file', explode_path[ count( explode_path ) - 1 ] );
+
+	DEFINE( 'targeted_folder', explode_path[ count( explode_path ) - 2 ] );
+
+	//echo ;
+
+	//if ($topMost == __FILE__) echo 'no parents';
+
+	//else echo "parent is $topMost";
+
+	//echo '<h1>started...</h1>';
 
 	# import libraries
 	
