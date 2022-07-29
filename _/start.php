@@ -1,5 +1,9 @@
 <?php
 
+	$arraySources = get_included_files();
+
+	$source = $arraySources[0];
+
 	echo '<h1>started...</h1>';
 
 	# import libraries
