@@ -10,7 +10,11 @@
 
 	DEFINE( 'targeted_folder', explode_path[ count( explode_path ) - 2 ] );
 
-	//echo ;
+	echo targeted_file;
+	
+	echo '<br>';
+
+	echo targeted_folder;
 
 	//if ($topMost == __FILE__) echo 'no parents';
 
