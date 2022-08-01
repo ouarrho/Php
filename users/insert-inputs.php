@@ -2,6 +2,8 @@
 
 	const arr_inputs = [
 
+		'DEFINE'  => null,
+		
 		'SERVER'  => null,
 	
 		'ENV'     => null,
