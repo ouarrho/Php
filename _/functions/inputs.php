@@ -1,8 +1,18 @@
 <?php
 
-    function _VAR($_data){
+    # if isset variable is true
 
-        global $connect;
+    # creation of variables
+
+    # variable's validation
+
+        ## empty
+        ## type
+        ## length
+        ## min/max
+
+
+    function NEW_VAR($_data){
 
         foreach($_data AS $_name):
 
@@ -12,41 +22,13 @@
 
     }
 
-    function _ISSET($_data){
+    function IF_ISSET($_data){
 
-        global $str_errorIsset;
-
-        foreach($_data AS $_name):
-
-            if(!isset($_REQUEST[$_name])):
-
-                echo $str_errorIsset;
-
-                exit();
-
-            endif;
-
-        endforeach;
 
     }
 
-    function _EMPTY($_data){
+    function IF_EMPTY($_data){
 
-        global $str_errorEmpty;
-
-        foreach($_data AS $_name):
-            
-            global $$_name;
-            
-            if(empty($$_name)):
-
-                echo $str_errorEmpty;
-
-                exit();
-
-            endif;
-
-        endforeach;
 
     }
 
