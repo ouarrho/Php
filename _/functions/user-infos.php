@@ -30,7 +30,7 @@
     
     }
 
-    function USER_INFOS_OSName(){
+    function USER_INFOS_OS_NAME(){
 
         global $USERAGENT;
 
@@ -78,7 +78,7 @@
 
     }
 
-    function USER_INFOS_browserName(){
+    function USER_INFOS_BROWSER_NAME(){
 
         global $USERAGENT;
 
