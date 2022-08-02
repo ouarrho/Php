@@ -6,8 +6,6 @@
 
 			'authentications', 
 
-			'dates', 
-
 			'inputs',
 
 			'queries-delete',
