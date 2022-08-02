@@ -8,13 +8,15 @@
 	
 	const DATABASE = 'hello-db';
 
+	const DSN      = 'mysql:host='.HOST.';dbname='.DATABASE;
+
 	TRY {
 
-		$connect = new mysqli( HOST, USER, PASSWORD, DATABASE );
+		$pdo = new PDO( DSN, USER, PASSWORD );
 
 	} CATCH( Exception $e ) {
 
-		echo 'Connection Failed!';
+		echo $e;
 
 		exit();
 
