@@ -12,7 +12,7 @@
 
 	TRY {
 
-		$PDO = new PDO( DSN, USER, PASSWORD );
+		$connect = new PDO( DSN, USER, PASSWORD );
 
 	} CATCH( Exception $e ) {
 

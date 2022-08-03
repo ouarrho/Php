@@ -6,23 +6,48 @@
 
     }
 
-    function SQL_UPDATE( $TABLE, $SET, $WHERE=null ){
+    function SQL_UPDATE( $TABLE, $SET, $WHERE = null ){
 
         //... 
 
     }
 
-    function SQL_SELECT( $COLUMN, $TABLE, $WHERE=null, $GROUP=null, $ORDER=null, $LIMIT=null ){
+    function SQL_SELECT( $columns, $table, $where = false, $group = false, $order = false, $limit = false ){
 
-        global $PDO;
+        global $connect;
 
-        $select = $PDO->query( 'SELECT * FROM u' );
+        $query = "SELECT {$columns} FROM {$table}";
 
-        while( $row = $select->fetch( PDO::FETCH_ASSOC ) ):
+            ( ! $where ) ?: $query .= " where {$where}";
+        
+            ( ! $group ) ?: $query .= " group by {$group}";
+        
+            ( ! $order ) ?: $query .= " order by {$order}";
+        
+            ( ! $limit ) ?: $query .= " limit {$limit}";
 
-            echo $row[ 'userMail' ];
 
-        endwhile;
+        $select = $connect -> prepare( $query );
+
+        $select -> execute();
+
+        $count = $select -> rowCount();
+
+        if( $select == true ): 
+
+            return [
+
+                'count' => $count, 
+
+                'fetch' => $select
+
+            ];
+
+        else: 
+
+            return false;
+
+        endif;
 
     }
 
