@@ -1,16 +1,17 @@
 <?php
 
-    function SQL_INSERT( $TABLE, $VALUES ){
+    #String
+    #Integer
+    #Float
+    #Boolean
+    #Array
+    #Object
+    #NULL
+    #Resource
 
-        //... 
+    function SQL_INSERT( $TABLE, $VALUES ){ /* ... */ }
 
-    }
-
-    function SQL_UPDATE( $TABLE, $SET, $WHERE = null ){
-
-        //... 
-
-    }
+    function SQL_UPDATE( $TABLE, $SET, $WHERE = false ){ /* ... */ }
 
     function SQL_SELECT( $columns, $table, $where = false, $group = false, $order = false, $limit = false ){
 
@@ -18,14 +19,13 @@
 
         $query = "SELECT {$columns} FROM {$table}";
 
-            ( ! $where ) ?: $query .= " where {$where}";
+            ( ! $where ) ?: $query .= " WHERE {$where}";
         
-            ( ! $group ) ?: $query .= " group by {$group}";
+            ( ! $group ) ?: $query .= " GROUP BY {$group}";
         
-            ( ! $order ) ?: $query .= " order by {$order}";
+            ( ! $order ) ?: $query .= " ORDER BY {$order}";
         
-            ( ! $limit ) ?: $query .= " limit {$limit}";
-
+            ( ! $limit ) ?: $query .= " LIMIT {$limit}";
 
         $select = $connect -> prepare( $query );
 
@@ -51,10 +51,6 @@
 
     }
 
-    function SQL_DELETE(){ 
-
-        //... 
-
-    }
+    function SQL_DELETE(){ /* ... */ }
 
 ?>
