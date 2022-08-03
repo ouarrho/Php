@@ -1,5 +1,7 @@
 <?php
 
+    declare( strict_types = 1 );
+
     #String
     #Integer
     #Float
@@ -11,9 +13,25 @@
 
     function SQL_INSERT( $TABLE, $VALUES ){ /* ... */ }
 
+
     function SQL_UPDATE( $TABLE, $SET, $WHERE = false ){ /* ... */ }
 
-    function SQL_SELECT( $columns, $table, $where = false, $group = false, $order = false, $limit = false ){
+
+    function SQL_SELECT( 
+    
+        string $columns, 
+
+        string $table, 
+
+        string $where = '', 
+
+        string $group = '', 
+
+        string $order = '', 
+
+        string $limit = '' 
+
+    ): string {
 
         global $connect;
 
@@ -50,6 +68,7 @@
         endif;
 
     }
+
 
     function SQL_DELETE(){ /* ... */ }
 
