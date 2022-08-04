@@ -4,11 +4,12 @@
 
     class SQL_SELECT {
 
-        public $query = "";
+        private $query = "";
         
         public $count = "";
         
         public $fetch = "";
+
 
         public function COLUMNS( string $columns = "" ): object {
 

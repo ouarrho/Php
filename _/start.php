@@ -16,12 +16,6 @@
 
 	echo targeted_folder;
 
-	//if ($topMost == __FILE__) echo 'no parents';
-
-	//else echo "parent is $topMost";
-
-	//echo '<h1>started...</h1>';
-
 	# import libraries
 	
 	# connect to database

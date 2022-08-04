@@ -1,6 +1,14 @@
 <?php 
 
 	const arr_libraries = [
+		
+		'_' => [
+
+			'tree', 
+
+			'connect'
+
+		],
 
 		'functions' => [
 
@@ -25,6 +33,8 @@
 			'sql-select', 
 			
 			'sql-update', 
+
+			'tree', 
 			
 			'user-infos'
 
