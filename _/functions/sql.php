@@ -2,82 +2,108 @@
 
     declare( strict_types = 1 );
 
-    #String
-    #Integer
-    #Float
-    #Boolean
-    #Array
-    #Object
-    #NULL
-    #Resource
+    class SQL_SELECT {
 
-    function SQL_INSERT( $TABLE, $VALUES ){ /* ... */ }
-
-
-    function SQL_UPDATE( $TABLE, $SET, $WHERE = false ){ /* ... */ }
-
-
-    function SQL_SELECT( 
-    
-        string $columns, 
-
-        string $table, 
-
-        string $join   = "", 
-
-        string $where  = "", 
-
-        string $group  = "", 
-
-        string $having = "", 
-
-        string $order  = "", 
-
-        string $limit  = "" 
-
-    ): array {
-
-        global $connect;
-
-        $query = "SELECT {$columns} FROM {$table}";
-
-            ( ! $join )   ?: $query .= " {$join}";
-
-            ( ! $where )  ?: $query .= " WHERE {$where}";
+        public $query = "";
         
-            ( ! $group )  ?: $query .= " GROUP BY {$group}";
+        public $count = "";
         
-            ( ! $having ) ?: $query .= " HAVING {$having}";
+        public $fetch = "";
 
-            ( ! $order )  ?: $query .= " ORDER BY {$order}";
-        
-            ( ! $limit )  ?: $query .= " LIMIT {$limit}";
+        public function COLUMNS( string $columns = "" ): object {
 
-        $select = $connect -> prepare( $query );
+            $this -> query .= "SELECT {$columns}";
 
-        $select -> execute();
+            return $this;
 
-        $count = $select -> rowCount();
+        }
 
-        if( $select == true ): 
+        public function TABLE( string $table = "" ): object {
 
-            return [
+            $this -> query .= " FROM {$table}";
 
-                'count' => $count, 
+            return $this;
 
-                'fetch' => $select
+        }
 
-            ];
+        public function JOIN( string $join = "" ): object {
 
-        else: 
+            $this -> query .= " {$join}";
 
-            return false;
+            return $this;
 
-        endif;
+        }
+
+        public function WHERE( string $where = "" ): object {
+
+            $this -> query .= " WHERE {$where}";
+
+            return $this;
+
+        }
+
+        public function GROUP( string $group = "" ): object {
+
+            $this -> query .= " GROUP BY {$group}";
+
+            return $this;
+
+        }
+
+        public function HAVING( string $having = "" ): object {
+
+            $this -> query .= " {$having}";
+
+            return $this;
+
+        }
+
+        public function ORDER( string $order = "" ): object {
+
+            $this -> query .= " ORDER BY {$order}";
+
+            return $this;
+
+        }
+
+        public function LIMIT( string $limit = "" ): object {
+
+            $this -> query .= " LIMIT {$limit}";
+
+            return $this;
+
+        }
+
+        public function START(): object {
+
+            global $connect;
+
+            $select = $connect -> prepare( $this -> query );
+
+            $select -> execute();
+
+            $count = $select -> rowCount();
+
+            $fetch = $select -> fetchAll( PDO::FETCH_ASSOC );
+
+            if( $select == true ): 
+
+                $this -> count = $count;
+                
+                $this -> fetch = $fetch;
+
+            else: 
+
+                $this -> count = false;
+
+                $this -> fetch = false;
+
+            endif;
+
+            return $this;
+
+        }
 
     }
-
-
-    function SQL_DELETE(){ /* ... */ }
 
 ?>
