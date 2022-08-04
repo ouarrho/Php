@@ -23,13 +23,15 @@
 
         string $table, 
 
-        string $where = '', 
+        string $where  = "", 
 
-        string $group = '', 
+        string $group  = "", 
 
-        string $order = '', 
+        string $having = "", 
 
-        string $limit = '' 
+        string $order  = "", 
+
+        string $limit  = "" 
 
     ): string {
 
@@ -37,13 +39,15 @@
 
         $query = "SELECT {$columns} FROM {$table}";
 
-            ( ! $where ) ?: $query .= " WHERE {$where}";
+            ( ! $where )  ?: $query .= " WHERE {$where}";
         
-            ( ! $group ) ?: $query .= " GROUP BY {$group}";
+            ( ! $group )  ?: $query .= " GROUP BY {$group}";
         
-            ( ! $order ) ?: $query .= " ORDER BY {$order}";
+            ( ! $having ) ?: $query .= " HAVING {$having}";
+
+            ( ! $order )  ?: $query .= " ORDER BY {$order}";
         
-            ( ! $limit ) ?: $query .= " LIMIT {$limit}";
+            ( ! $limit )  ?: $query .= " LIMIT {$limit}";
 
         $select = $connect -> prepare( $query );
 
