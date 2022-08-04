@@ -23,6 +23,8 @@
 
         string $table, 
 
+        string $join   = "", 
+
         string $where  = "", 
 
         string $group  = "", 
@@ -38,6 +40,8 @@
         global $connect;
 
         $query = "SELECT {$columns} FROM {$table}";
+
+            ( ! $join )   ?: $query .= " {$join}";
 
             ( ! $where )  ?: $query .= " WHERE {$where}";
         
