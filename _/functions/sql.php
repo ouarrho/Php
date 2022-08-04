@@ -35,7 +35,7 @@
 
         string $limit  = "" 
 
-    ): string {
+    ): array {
 
         global $connect;
 
