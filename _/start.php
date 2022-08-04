@@ -2,11 +2,11 @@
 
 	DEFINE( 'included_files', get_included_files() );
 
-	DEFINE( 'targeted_path' , included_files[ 0 ] );
+	DEFINE( 'targeted_path', included_files[ 0 ] );
 
 	DEFINE( 'explode_path', explode( '\\', targeted_path ) );
 
-	DEFINE( 'targeted_file', explode_path[ count( explode_path ) - 1 ] );
+	DEFINE( 'targeted_file', rtrim( explode_path[ count( explode_path ) - 1 ], '.php' ) );
 
 	DEFINE( 'targeted_folder', explode_path[ count( explode_path ) - 2 ] );
 
