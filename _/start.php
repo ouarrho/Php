@@ -1,20 +1,15 @@
 <?php
 
-	DEFINE( 'included_files', get_included_files() );
+	require 'included.php';
 
-	DEFINE( 'targeted_path', included_files[ 0 ] );
+	$included = new included();
 
-	DEFINE( 'explode_path', explode( '\\', targeted_path ) );
+	$path = '../' . $included -> folder() . '/' . $included -> file();
 
-	DEFINE( 'targeted_file', rtrim( explode_path[ count( explode_path ) - 1 ], '.php' ) );
+	require $path . '-libraries.php';
+	require $path . '-inputs.php';
+	require $path . '-requirements.php';
 
-	DEFINE( 'targeted_folder', explode_path[ count( explode_path ) - 2 ] );
-
-	echo targeted_file;
-	
-	echo '<br>';
-
-	echo targeted_folder;
 
 	# import libraries
 	
