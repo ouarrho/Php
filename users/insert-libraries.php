@@ -1,49 +1,27 @@
 <?php 
 
 	const arr_libraries = [
-		
-		'_' => [
 
-			'tree', 
+		'db' => [
 
-			'connect'
+			'db-insert', 
+
+			'db-select', 
+
+			'db-update',
+			
+			'db-delete' 
 
 		],
 
-		'functions' => [
+		'languages' => [
 
-			'authentications', 
+			'arrays',
 
-			'inputs',
+			'strings'
 
-			'queries-delete',
+		]
 
-			'queries-insert',
-
-			'queries-select',
-
-			'queries-update', 
-			
-			'sql', 
-
-			'sql-delete', 
-
-			'sql-insert', 
-
-			'sql-select', 
-			
-			'sql-update', 
-
-			'tree', 
-			
-			'user-infos'
-
-		],
-
-		'variables' => null,
-
-		'languages' => null
-	
 	];
 
 ?>

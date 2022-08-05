@@ -8,7 +8,6 @@
 
 	require $path . '-libraries.php';
 	require $path . '-inputs.php';
-	require $path . '-requirements.php';
 
 
 	# import libraries
