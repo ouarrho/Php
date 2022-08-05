@@ -11,14 +11,13 @@
         ## length
         ## min/max
 
-
     function NEW_VAR( $_data ){
 
         # define method
         # define variable name ( explode the name by AS keyword )
         # htmlspecialchars & trim
 
-        foreach( $_data AS $_name ):
+        foreach($_data AS $_name):
 
             $GLOBALS[ $_name ] = htmlspecialchars( $_REQUEST[ $_name ] );
 

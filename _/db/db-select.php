@@ -2,7 +2,7 @@
 
     declare( strict_types = 1 );
 
-    class SQL_SELECT {
+    class DB_SELECT {
 
         private $query = "";
         

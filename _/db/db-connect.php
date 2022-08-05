@@ -6,7 +6,7 @@
 	
 	const PASSWORD = '';
 	
-	const DATABASE = 'hello-db';
+	const DATABASE = 'information_schema';
 
 	const DSN      = 'mysql:host='.HOST.';dbname='.DATABASE;
 
