@@ -2,25 +2,17 @@
 
 	const arr_libraries = [
 
-		'db' => [
+		'db/db-insert',
 
-			'db-insert', 
+		'db/db-select',
 
-			'db-select', 
+		'db/db-update',
 
-			'db-update',
-			
-			'db-delete' 
+		'db/db-delete',
 
-		],
+		'languages/arrays',
 
-		'languages' => [
-
-			'arrays',
-
-			'strings'
-
-		]
+		'languages/strings',
 
 	];
 
