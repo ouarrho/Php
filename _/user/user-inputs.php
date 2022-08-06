@@ -1,37 +1,26 @@
 <?php
 
-    # if isset variable is true
+    class USER_INPUTS {
 
-    # creation of variables
+        public function NEW_VAR( $_data ){
 
-    # variable's validation
+            foreach($_data AS $_name):
 
-        ## empty
-        ## type
-        ## length
-        ## min/max
+                $GLOBALS[ $_name ] = htmlspecialchars( $_REQUEST[ $_name ] );
 
-    function NEW_VAR( $_data ){
+            endforeach;
 
-        # define method
-        # define variable name ( explode the name by AS keyword )
-        # htmlspecialchars & trim
+        }
 
-        foreach($_data AS $_name):
-
-            $GLOBALS[ $_name ] = htmlspecialchars( $_REQUEST[ $_name ] );
-
-        endforeach;
-
-    }
-
-    function IF_ISSET( $_data ){
+        public function IF_ISSET( $_data ){
 
 
-    }
+        }
 
-    function IF_EMPTY( $_data ){
+        public function IF_EMPTY( $_data ){
 
+
+        }
 
     }
 
