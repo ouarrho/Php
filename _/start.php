@@ -1,13 +1,19 @@
 <?php
 
-	require 'included.php';
+	require 'architecture/dir.php';
 
-	$included = new included();
+		$DIR = NEW DIR();
 
-	$path = '../' . $included -> folder() . '/' . $included -> file();
+		$path = '../' . $DIR -> FOLDER() . '/' . $DIR -> FILE();
 
-	require $path . '-libraries.php';
-	require $path . '-inputs.php';
+		require $path . '-libraries.php';
+
+		require $path . '-inputs.php';
+
+
+	foreach( arr_libraries AS $library )
+
+		require( $library . '.php' );
 
 
 	# import libraries
