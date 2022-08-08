@@ -1,5 +1,9 @@
 <?php
 
+	/*                            *\
+	    ARCHITECTURE & DIRECTORY    
+	\*                            */
+
 	require 'architecture/dir.php';
 
 		$DIR = NEW DIR();
@@ -11,19 +15,28 @@
 		require $path . '-inputs.php';
 
 
+	/*                        *\
+	    REQUIRES & LIBRARIES    
+	\*                        */
+
+	if( array_intersect( [ 'db/db-insert', 'db/db-select', 'db/db-update', 'db/db-delete' ], arr_libraries ) )
+
+		require 'db/db-connect.php';
+
+	if( count( arr_inputs ) > 0 )
+
+		require 'user/user-inputs.php';
+
 	foreach( arr_libraries AS $library )
 
-		require( $library . '.php' );
+		require $library . '.php';
 
 
-	# import libraries
-	
-	# connect to database
+	/*               *\
+	    USER INPUTS    
+	\*               */
 
-	# require( '../' . __LOCATION__ . '/file.php' );
-	
-	# create variables from the inputs
-	
-	# check the variables created
+	require 'user/user-inputs.php';
+
 
 ?>
