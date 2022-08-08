@@ -4,37 +4,41 @@
 
     class USER_INPUTS {
 
-        public function NEW_VAR( array $_data ){
+        public function NEW_VAR( array $_DATA ){
 
-            foreach($_data AS $_name):
+            # check if isset the variable
+            # explode the variable
+            # create the variable
 
-                $GLOBALS[ $_name ] = htmlspecialchars( $_REQUEST[ $_name ] );
+            foreach( $_DATA AS $_NAME ):
+
+                $GLOBALS[ $_NAME ] = htmlspecialchars( $_REQUEST[ $_NAME ] );
 
             endforeach;
 
         }
 
-        public function ISSET( array $_data ){
+        public function ISSET( array $_DATA ){
 
 
         }
 
-        public function TYPE( array $_data ){
+        public function TYPE( array $_DATA ){
 
 
         }
 
-        public function MIN( array $_data ){
+        public function MIN( array $_DATA ){
 
 
         }
 
-        public function MAX( array $_data ){
+        public function MAX( array $_DATA ){
 
 
         }
 
-        public function LENGTH( array $_data ){
+        public function LENGTH( array $_DATA ){
 
 
         }

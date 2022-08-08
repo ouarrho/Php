@@ -1,8 +1,10 @@
 <?php
 
-	/*                            *\
-	    ARCHITECTURE & DIRECTORY    
-	\*                            */
+	/**
+	*
+	* ARCHITECTURE & DIRECTORY    
+	*
+	*/
 
 	require 'architecture/dir.php';
 
@@ -15,9 +17,11 @@
 		require $path . '-inputs.php';
 
 
-	/*                        *\
-	    REQUIRES & LIBRARIES    
-	\*                        */
+	/**
+	*
+	* REQUIRES & LIBRARIES    
+	*
+	*/
 
 	if( array_intersect( [ 'db/db-insert', 'db/db-select', 'db/db-update', 'db/db-delete' ], arr_libraries ) )
 
@@ -32,11 +36,15 @@
 		require $library . '.php';
 
 
-	/*               *\
-	    USER INPUTS    
-	\*               */
+	/**
+	*
+	* USER INPUTS    
+	*
+	*/
 
-	require 'user/user-inputs.php';
+	$USER_INPUTS = NEW USER_INPUTS();
+
+	$USER_INPUTS -> NEW_VAR( arr_inputs[ 'POST' ] );
 
 
 ?>
