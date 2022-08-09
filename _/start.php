@@ -41,9 +41,11 @@
 */
 	$USER_INPUTS = NEW USER_INPUTS();
 
-	$USER_INPUTS -> ISSET   ( arr_inputs ) 
+	$USER_INPUTS
 
-                 -> NEW_VAR ( arr_inputs );
+		-> ISSET   ( arr_inputs ) 
+
+		-> NEW_VAR ( arr_inputs );
 
 
 ?>
