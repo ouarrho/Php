@@ -14,20 +14,13 @@
 	
 		'REQUEST' => null,
 	
-		'GET'     => null,
+		'POST'    => null,
 
-		'POST'    => [
+		'GET'     => [
 
 			'_FINGERPRINT AS name:fingerPrint type:email max:500 min:100 length:16', 
 
-			'_APPID', 
-
-			'_ID', 
-
-			'_KEY', 
-
-			'_TYPE'
-
+			'id'
 		]
 
 	];
