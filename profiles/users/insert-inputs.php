@@ -18,7 +18,7 @@
 
 		'POST'    => [
 
-			'_FINGERPRINT AS fingerPrint type:email max:500 min:100 length:16', 
+			'_FINGERPRINT AS name:fingerPrint type:email max:500 min:100 length:16', 
 
 			'_APPID', 
 
