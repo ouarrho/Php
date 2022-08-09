@@ -1,31 +1,64 @@
 <?php
 
+/**
+    *
+    * This class handle all the user inputs 
+    *
+    * First thing we check if the variables exists    
+    *
+    * Secondly, we check all the inputs taking into account
+    * all the parameters like method, name, etc...
+    *
+    * Then we sanitize and validate all the variables
+    * by doing a quick check of the inputs 
+    * like the validating type (email, integer, etc...)
+    * and finally we create all inputs as global variables
+    *
+*/
     declare( strict_types = 1 );
 
     class USER_INPUTS {
 
-        public function ISSET_BY_METHOD( string $METHOD,  string $NAME ): bool {
 
-                if( $METHOD == 'SERVER'  ): return isset( $_SERVER  [ $NAME ] ) ? true : false;
+    /**
+        *
+        * This method is bound to ISSET() method
+        *
+        * It checks if the input exists taking into consideration all the methods of submitting
+        * 
+        * If the input exists it returns true and vice versa
+        * 
+        * The return value is either true or false
+        *
+    */
+        public function ISSET_BY_METHOD( string $_METHOD,  string $_NAME ): bool {
 
-            elseif( $METHOD == 'ENV'     ): return isset( $_ENV     [ $NAME ] ) ? true : false;
+                if( $_METHOD == 'SERVER'  ): return isset( $_SERVER  [ $_NAME ] ) ? true : false;
 
-            elseif( $METHOD == 'COOKIE'  ): return isset( $_COOKIE  [ $NAME ] ) ? true : false;
+            elseif( $_METHOD == 'ENV'     ): return isset( $_ENV     [ $_NAME ] ) ? true : false;
 
-            elseif( $METHOD == 'SESSION' ): return isset( $_SESSION [ $NAME ] ) ? true : false;
+            elseif( $_METHOD == 'COOKIE'  ): return isset( $_COOKIE  [ $_NAME ] ) ? true : false;
 
-            elseif( $METHOD == 'FILES'   ): return isset( $_FILES   [ $NAME ] ) ? true : false;
+            elseif( $_METHOD == 'SESSION' ): return isset( $_SESSION [ $_NAME ] ) ? true : false;
 
-            elseif( $METHOD == 'REQUEST' ): return isset( $_REQUEST [ $NAME ] ) ? true : false;
+            elseif( $_METHOD == 'FILES'   ): return isset( $_FILES   [ $_NAME ] ) ? true : false;
 
-            elseif( $METHOD == 'GET'     ): return isset( $_GET     [ $NAME ] ) ? true : false;
+            elseif( $_METHOD == 'REQUEST' ): return isset( $_REQUEST [ $_NAME ] ) ? true : false;
 
-            elseif( $METHOD == 'POST'    ): return isset( $_POST    [ $NAME ] ) ? true : false;
+            elseif( $_METHOD == 'GET'     ): return isset( $_GET     [ $_NAME ] ) ? true : false;
+
+            elseif( $_METHOD == 'POST'    ): return isset( $_POST    [ $_NAME ] ) ? true : false;
 
             endif;
 
         }
 
+
+    /**
+        *
+        * 
+        *
+    */
         public function ISSET( array $_DATA ){
 
             foreach( $_DATA AS $_METHOD => $_VALUE ):
@@ -54,12 +87,42 @@
 
         }
 
-        public function NEW_VAR_BY_METHOD( string $METHOD,  string $NAME ): bool {
 
-            //...
+    /**
+        *
+        *
+        *
+    */
+        public function NEW_VAR_BY_METHOD( string $_METHOD,  string $_NAME, array $_ATTR ){
+
+            ( isset( $_ATTR[ 'name' ] ) ) ? $_name = $_ATTR[ 'name' ] : $_name = $_NAME;
+            
+                if( $_METHOD == 'SERVER'  ): $GLOBALS[ $_name ] = htmlspecialchars( $_SERVER  [ $_NAME ] );
+
+            elseif( $_METHOD == 'ENV'     ): $GLOBALS[ $_name ] = htmlspecialchars( $_ENV     [ $_NAME ] );
+
+            elseif( $_METHOD == 'COOKIE'  ): $GLOBALS[ $_name ] = htmlspecialchars( $_COOKIE  [ $_NAME ] );
+
+            elseif( $_METHOD == 'SESSION' ): $GLOBALS[ $_name ] = htmlspecialchars( $_SESSION [ $_NAME ] );
+
+            elseif( $_METHOD == 'FILES'   ): $GLOBALS[ $_name ] = htmlspecialchars( $_FILES   [ $_NAME ] );
+
+            elseif( $_METHOD == 'REQUEST' ): $GLOBALS[ $_name ] = htmlspecialchars( $_REQUEST [ $_NAME ] );
+
+            elseif( $_METHOD == 'GET'     ): $GLOBALS[ $_name ] = htmlspecialchars( $_GET     [ $_NAME ] );
+
+            elseif( $_METHOD == 'POST'    ): $GLOBALS[ $_name ] = htmlspecialchars( $_POST    [ $_NAME ] );
+
+            endif;
 
         }
 
+
+    /**
+        *
+        *
+        *
+    */
         public function NEW_VAR( array $_DATA ){
 
             foreach( $_DATA AS $_METHOD => $_VALUE ):
@@ -70,7 +133,7 @@
 
                         $EXPLODE__VALUE = explode( ' AS ', $__VALUE );
 
-                        $ARRAY__VALUE = [];
+                        $ARRAY___VALUE = [];
 
                         if( isset( $EXPLODE__VALUE[ 1 ] ) ):
 
@@ -82,9 +145,7 @@
 
                                     $EXPLODE____VALUE = explode( ':', $___VALUE );
 
-                                    $ARRAY__VALUE[ $EXPLODE____VALUE[ 0 ] ] = $EXPLODE____VALUE[ 1 ];
-
-                                    //echo "{$EXPLODE____VALUE[ 0 ]} => {$EXPLODE____VALUE[ 1 ]} <br>";
+                                    $ARRAY___VALUE[ $EXPLODE____VALUE[ 0 ] ] = $EXPLODE____VALUE[ 1 ];
 
                                 endif;
 
@@ -92,9 +153,7 @@
 
                         endif;
 
-                        print_r( $ARRAY__VALUE );
-
-                        //$this -> NEW_VAR_BY_METHOD( $_METHOD, $EXPLODE__VALUE[ 0 ],  );
+                        $this -> NEW_VAR_BY_METHOD( $_METHOD, $EXPLODE__VALUE[ 0 ], $ARRAY___VALUE );
 
                     endforeach;
 
