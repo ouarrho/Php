@@ -45,9 +45,9 @@
 
             elseif( $_METHOD == 'REQUEST' ): return isset( $_REQUEST [ $_NAME ] ) ? true : false;
 
-            elseif( $_METHOD == 'GET'     ): return isset( $_GET     [ $_NAME ] ) ? true : false;
-
             elseif( $_METHOD == 'POST'    ): return isset( $_POST    [ $_NAME ] ) ? true : false;
+
+            elseif( $_METHOD == 'GET'     ): return isset( $_GET     [ $_NAME ] ) ? true : false;
 
             endif;
 
@@ -93,9 +93,43 @@
         *
         *
     */
+        public function EXPLODE_VAR_VALUE( string $__VALUE ){
+
+            $EXPLODE__VALUE = explode( ' AS ', $__VALUE );
+
+            $ARRAY___VALUE = [];
+
+            if( isset( $EXPLODE__VALUE[ 1 ] ) ):
+
+                $EXPLODE___VALUE = explode( ' ', $EXPLODE__VALUE[ 1 ] );
+
+                foreach( $EXPLODE___VALUE AS $___VALUE ):
+
+                    if( !empty( $___VALUE ) ):
+
+                        $EXPLODE____VALUE = explode( ':', $___VALUE );
+
+                        $ARRAY___VALUE[ $EXPLODE____VALUE[ 0 ] ] = $EXPLODE____VALUE[ 1 ];
+
+                    endif;
+
+                endforeach;
+
+            endif;
+
+            return [ 'NAME' => $EXPLODE__VALUE[ 0 ], 'ATTR' => $ARRAY___VALUE ];
+
+        }
+
+
+    /**
+        *
+        *
+        *
+    */
         public function NEW_VAR_BY_METHOD( string $_METHOD,  string $_NAME, array $_ATTR ){
 
-            ( isset( $_ATTR[ 'name' ] ) ) ? $_name = $_ATTR[ 'name' ] : $_name = $_NAME;
+                ( isset( $_ATTR[ 'name' ] ) ) ? $_name = $_ATTR[ 'name' ] : $_name = $_NAME;
             
                 if( $_METHOD == 'SERVER'  ): $GLOBALS[ $_name ] = htmlspecialchars( $_SERVER  [ $_NAME ] );
 
@@ -109,9 +143,9 @@
 
             elseif( $_METHOD == 'REQUEST' ): $GLOBALS[ $_name ] = htmlspecialchars( $_REQUEST [ $_NAME ] );
 
-            elseif( $_METHOD == 'GET'     ): $GLOBALS[ $_name ] = htmlspecialchars( $_GET     [ $_NAME ] );
-
             elseif( $_METHOD == 'POST'    ): $GLOBALS[ $_name ] = htmlspecialchars( $_POST    [ $_NAME ] );
+
+            elseif( $_METHOD == 'GET'     ): $GLOBALS[ $_name ] = htmlspecialchars( $_GET     [ $_NAME ] );
 
             endif;
 
@@ -131,29 +165,9 @@
                 
                     foreach( $_VALUE AS $__VALUE ):
 
-                        $EXPLODE__VALUE = explode( ' AS ', $__VALUE );
+                        $EXPLODE__VALUE = $this -> EXPLODE_VAR_VALUE( $__VALUE );
 
-                        $ARRAY___VALUE = [];
-
-                        if( isset( $EXPLODE__VALUE[ 1 ] ) ):
-
-                            $EXPLODE___VALUE = explode( ' ', $EXPLODE__VALUE[ 1 ] );
-
-                            foreach( $EXPLODE___VALUE AS $___VALUE ):
-
-                                if( !empty( $___VALUE ) ):
-
-                                    $EXPLODE____VALUE = explode( ':', $___VALUE );
-
-                                    $ARRAY___VALUE[ $EXPLODE____VALUE[ 0 ] ] = $EXPLODE____VALUE[ 1 ];
-
-                                endif;
-
-                            endforeach;
-
-                        endif;
-
-                        $this -> NEW_VAR_BY_METHOD( $_METHOD, $EXPLODE__VALUE[ 0 ], $ARRAY___VALUE );
+                        $this -> NEW_VAR_BY_METHOD( $_METHOD, $EXPLODE__VALUE[ 'NAME' ], $EXPLODE__VALUE[ 'ATTR' ] );
 
                     endforeach;
 
@@ -165,21 +179,89 @@
 
         }
 
-        public function TYPE( array $_DATA ){
 
+    /**
+        *
+        *
+        *
+    */
+        public function TYPE_BY_METHOD( string $_METHOD,  string $_NAME, array $_ATTR ){
+
+            global $arr_inputs_filters;
+
+            if( $_METHOD == 'GET' ):
+
+                if( !filter_var( $_GET[ $_NAME ], $arr_inputs_filters[ $_ATTR[ 'type' ] ] ) ):
+
+                    echo "$_NAME invalid type";
+
+                    exit();
+
+                endif;
+
+            endif;
 
         }
 
+    /**
+        *
+        *
+        *
+    */
+        public function TYPE( array $_DATA ){
+
+            foreach( $_DATA AS $_METHOD => $_VALUE ):
+
+                if( !empty( $_VALUE ) ):
+                
+                    foreach( $_VALUE AS $__VALUE ):
+
+                        $EXPLODE__VALUE = $this -> EXPLODE_VAR_VALUE( $__VALUE );
+
+                        if( isset( $EXPLODE__VALUE[ 'ATTR' ][ 'type' ] ) ):
+
+                            $this -> TYPE_BY_METHOD( $_METHOD, $EXPLODE__VALUE[ 'NAME' ], $EXPLODE__VALUE[ 'ATTR' ] );
+
+                        endif;
+
+                    endforeach;
+
+                endif;
+
+            endforeach;
+
+            return $this;
+
+        }
+
+
+    /**
+        *
+        *
+        *
+    */
         public function MIN( array $_DATA ){
 
 
         }
 
+
+    /**
+        *
+        *
+        *
+    */
         public function MAX( array $_DATA ){
 
 
         }
 
+
+    /**
+        *
+        *
+        *
+    */
         public function LENGTH( array $_DATA ){
 
 
