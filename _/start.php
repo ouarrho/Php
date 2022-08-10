@@ -1,5 +1,32 @@
 <?php
 
+
+    $arr_inputs_filters = [ 
+
+                                'boolean' => FILTER_VALIDATE_BOOLEAN, 
+                            
+                                'bool'    => FILTER_VALIDATE_BOOLEAN, 
+                            
+                                'domain'  => FILTER_VALIDATE_DOMAIN, 
+                            
+                                'email'   => FILTER_VALIDATE_EMAIL, 
+                            
+                                'float'   => FILTER_VALIDATE_FLOAT, 
+                            
+                                'integer' => FILTER_VALIDATE_INT, 
+                            
+                                'int'     => FILTER_VALIDATE_INT, 
+                            
+                                'ip'      => FILTER_VALIDATE_IP, 
+                            
+                                'mac'     => FILTER_VALIDATE_MAC, 
+                            
+                                'regex'   => FILTER_VALIDATE_REGEXP, 
+                            
+                                'url'     => FILTER_VALIDATE_URL
+
+							];
+
 /**
 	*
 	* ARCHITECTURE & DIRECTORY
@@ -45,7 +72,8 @@
 
 		-> ISSET   ( arr_inputs ) 
 
-		-> NEW_VAR ( arr_inputs );
-
+		-> TYPE    ( arr_inputs );
+		
+		//-> NEW_VAR ( arr_inputs );
 
 ?>
