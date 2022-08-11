@@ -47,7 +47,9 @@
 
 		-> ISSET   ( arr_inputs ) 
 
-		-> TYPE    ( arr_inputs );
+		-> TYPE    ( arr_inputs )
+		
+		-> NEW_VAR ( arr_inputs );
 
 
 ?>

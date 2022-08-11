@@ -42,6 +42,45 @@
 
         }
 
+    /**
+        *
+        *
+        *
+    */
+        public function NEW_VAR( array $_DATA ){
+
+            foreach( $_DATA AS $_METHOD => $_VALUE ):
+
+                if( !empty( $_VALUE ) ):
+                
+                    foreach( $_VALUE AS $__VALUE ):
+
+                        $EXPLODE__VALUE = $this -> EXPLODE_VAR_ATTR( $__VALUE );
+
+                        if( isset( $EXPLODE__VALUE[ 'ATTR' ][ 'name' ] ) ): 
+
+                            $_name = $EXPLODE__VALUE[ 'ATTR' ][ 'name' ];
+
+                        else: 
+
+                            $_name = $EXPLODE__VALUE[ 'NAME' ];
+
+                        endif;
+
+                        $_METHOD_NAME = $this -> ARRAY_INPUTS_METHODS[ $_METHOD ];
+
+                        $GLOBALS[ $_name ] = htmlspecialchars( $_METHOD_NAME [ $EXPLODE__VALUE[ 'NAME' ] ] );
+
+                    endforeach;
+
+                endif;
+
+            endforeach;
+
+            return $this;
+
+        }
+
     }
 
 ?>

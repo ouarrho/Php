@@ -28,21 +28,7 @@
         *
         *
     */
-        use USER_INPUTS_ISSET;
-
-    /**
-        *
-        *
-        *
-    */
-        use USER_INPUTS_TYPE;
-
-    /**
-        *
-        *
-        *
-    */
-        use USER_INPUTS_VARIABLES;
+        use USER_INPUTS_ISSET, USER_INPUTS_TYPE, USER_INPUTS_VARIABLES;
 
 
         private $ARRAY_INPUTS_METHODS = [];
