@@ -17,7 +17,7 @@
         * 
         * It checks if the input exists taking into consideration all the methods of submitting
         * 
-        * If the input doesn't exist all the process is stopped and return the name of input required
+        * If the input doesn't exist, all the process is stopped and return the name of the required input
         *
     */
         public function ISSET( array $_DATA ){
