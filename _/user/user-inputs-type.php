@@ -7,7 +7,7 @@
 */
     declare( strict_types = 1 );
 
-	trait USER_INPUTS_TYPE {
+    trait USER_INPUTS_TYPE {
 
     /**
         *
@@ -19,27 +19,27 @@
         * 
         * All input types list: 
         *
-        ******************************
+        **************************
         *
-        *    *----# boolean or bool
-        *    * 
-        *    *----# domain
-        *    * 
-        *    *----# email
-        *    * 
-        *    *----# float
-        *    * 
-        *    *----# integer or int
-        *    * 
-        *    *----# ip
-        *    * 
-        *    *----# mac
-        *    * 
-        *    *----# regex
-        *    * 
-        *    *----# url
+        *----# boolean or bool
+        *     
+        *----# domain
+        *     
+        *----# email
+        *     
+        *----# float
+        *     
+        *----# integer or int
+        *     
+        *----# ip
+        *     
+        *----# mac
+        *     
+        *----# regex
+        *     
+        *----# url
         *
-        ******************************
+        **************************
         *
     */
         public function TYPE( array $_DATA ){
@@ -50,7 +50,7 @@
                 
                     foreach( $_VALUE AS $__VALUE ):
 
-                        $EXPLODE__VALUE = $this -> EXPLODE_VAR_VALUE( $__VALUE );
+                        $EXPLODE__VALUE = $this -> EXPLODE_VAR_ATTR( $__VALUE );
 
                         if( isset( $EXPLODE__VALUE[ 'ATTR' ][ 'type' ] ) ):
 
@@ -80,6 +80,6 @@
 
         }
 
-	}
+    }
 
 ?>
