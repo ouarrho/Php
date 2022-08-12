@@ -15,7 +15,6 @@
 
 		require $path . '-inputs.php';
 
-
 /**
 	*
 	* REQUIRES & LIBRARIES
@@ -33,13 +32,11 @@
 
 		require $library . '.php';
 
-
 /**
 	*
 	* USER INPUTS
 	*
 */
 	$USER_INPUTS = NEW USER_INPUTS();
-
 
 ?>
