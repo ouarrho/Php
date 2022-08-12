@@ -12,7 +12,7 @@
 
 		'languages/arrays',
 
-		'languages/strings',
+		'languages/strings'
 
 	];
 

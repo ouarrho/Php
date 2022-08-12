@@ -9,7 +9,7 @@
 
 		$DIR = NEW DIR();
 
-		$path = '../' . $DIR -> FOLDER() . '/' . $DIR -> FILE();
+		$path = $DIR -> FILE();
 
 		require $path . '-libraries.php';
 

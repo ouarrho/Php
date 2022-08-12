@@ -7,7 +7,7 @@
 */
     declare( strict_types = 1 );
 
-    trait USER_INPUTS_ISSET {
+    trait USER_INPUTS_EXIST {
 
     /**
         *
@@ -20,7 +20,7 @@
         * If the input doesn't exist, all the process is stopped and return the name of the required input
         *
     */
-        public function ISSET( array $_DATA ){
+        public function EXIST( array $_DATA ){
 
             foreach( $_DATA AS $_METHOD => $_VALUE ):
 
