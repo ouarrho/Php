@@ -30,11 +30,31 @@
 
                         $EXPLODE__VALUE = explode( ' AS ', $__VALUE );
 
-                        if( ! array_key_exists( $EXPLODE__VALUE[ 0 ], $this -> ARRAY_INPUTS_METHODS[ $_METHOD ] ) ):
+                        $_METHOD_NAME = $this -> ARRAY_INPUTS_METHODS[ $_METHOD ];
+
+                        if( ! array_key_exists( $EXPLODE__VALUE[ 0 ], $_METHOD_NAME ) ):
 
                             echo "{$EXPLODE__VALUE[ 0 ]} NOT FOUND! <br>";
 
                             exit();
+
+                        else:
+
+                            if( 
+
+                                empty( trim( $_METHOD_NAME [ $EXPLODE__VALUE[ 0 ] ] ) ) 
+
+                                    AND 
+
+                                $_METHOD_NAME [ $EXPLODE__VALUE[ 0 ] ] != '0'
+
+                            ):
+
+                                echo "{$EXPLODE__VALUE[ 0 ]} EMPTY! <br>";
+
+                                exit();
+
+                            endif;
 
                         endif;
 
