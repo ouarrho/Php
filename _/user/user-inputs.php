@@ -17,8 +17,11 @@
 */
     declare( strict_types = 1 );
 
+    SESSION_START();
+
     require 'user-inputs-isset.php';
     require 'user-inputs-type.php';
+    require 'user-inputs-length.php';
     require 'user-inputs-variables.php';
 
     class USER_INPUTS {
@@ -28,7 +31,7 @@
         *
         *
     */
-        use USER_INPUTS_ISSET, USER_INPUTS_TYPE, USER_INPUTS_VARIABLES;
+        use USER_INPUTS_ISSET, USER_INPUTS_TYPE, USER_INPUTS_LENGTH, USER_INPUTS_VARIABLES;
 
 
         private $ARRAY_INPUTS_METHODS = [];
@@ -81,6 +84,19 @@
             $this -> ARRAY_INPUTS_METHODS [ 'POST'    ] = $_POST;
 
             $this -> ARRAY_INPUTS_METHODS [ 'GET'     ] = $_GET;
+
+
+            $this 
+
+                -> ISSET   ( arr_inputs ) 
+
+                -> TYPE    ( arr_inputs )
+
+                -> MIN     ( arr_inputs )
+
+                -> NEW_VAR ( arr_inputs )
+
+            ;
 
         }
 

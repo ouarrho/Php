@@ -39,17 +39,7 @@
 	* USER INPUTS
 	*
 */
-	SESSION_START();
-
 	$USER_INPUTS = NEW USER_INPUTS();
-
-	$USER_INPUTS
-
-		-> ISSET   ( arr_inputs ) 
-
-		-> TYPE    ( arr_inputs )
-		
-		-> NEW_VAR ( arr_inputs );
 
 
 ?>
