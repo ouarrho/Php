@@ -69,7 +69,7 @@
 
                         $_METHOD_NAME = $this -> ARRAY_INPUTS_METHODS[ $_METHOD ];
 
-                        $GLOBALS[ $_name ] = htmlspecialchars( $_METHOD_NAME [ $EXPLODE__VALUE[ 'NAME' ] ] );
+                        $GLOBALS[ $_name ] = htmlspecialchars( trim( $_METHOD_NAME [ $EXPLODE__VALUE[ 'NAME' ] ] ) );
 
                     endforeach;
 

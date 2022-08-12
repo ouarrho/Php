@@ -6,9 +6,9 @@
 
         private $query = "";
         
-        public $count = "";
+        public  $count = "";
         
-        public $fetch = "";
+        public  $fetch = "";
 
 
         public function COLUMNS( string $columns = "" ): object {
@@ -75,13 +75,13 @@
 
         }
 
-        public function START(): object {
+        public function START( array $parameters = [] ): object {
 
             global $connect;
 
             $select = $connect -> prepare( $this -> query );
 
-            $select -> execute();
+            $select -> execute( $parameters );
 
             $count = $select -> rowCount();
 
