@@ -71,6 +71,12 @@
 
                         $GLOBALS[ $_name ] = htmlspecialchars( trim( $_METHOD_NAME [ $EXPLODE__VALUE[ 'NAME' ] ] ) );
 
+                        if( isset( $EXPLODE__VALUE[ 'ATTR' ][ 'default' ] ) AND empty($$_name) ): 
+
+                            $GLOBALS[ $_name ] = $EXPLODE__VALUE[ 'ATTR' ][ 'default' ];
+
+                        endif;
+
                     endforeach;
 
                 endif;
