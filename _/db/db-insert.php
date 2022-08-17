@@ -4,9 +4,11 @@
 
     class DB_INSERT {
 
-        private $query = "";
+        private $query   = "";
 
-        public  $id    = "";
+        public  $id      = "";
+
+        public  $process = false;
 
 
         public function TABLE( string $table = "" ): object {
@@ -43,7 +45,9 @@
 
             if( $insert == true ):
 
-                $this -> id = $connect -> lastInsertId();
+                $this -> id      = $connect -> lastInsertId();
+
+                $this -> process = true;
 
             else: 
 
