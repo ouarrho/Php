@@ -7,6 +7,8 @@
 */
 	class ENCRYPTIONS {
 
+		public $hash = '';
+
 		private $arr_hash = [ 
 		
 					'sha256',
@@ -30,6 +32,13 @@
 					'haval256,5' 
 
 				];
+
+
+		public function __construct(){
+
+			//...
+
+		}
 
 	}
 
