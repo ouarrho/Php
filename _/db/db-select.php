@@ -4,11 +4,13 @@
 
     class DB_SELECT {
 
-        private $query = "";
+        private $query   = "";
         
-        public  $count = "";
+        public  $count   = "";
         
-        public  $fetch = "";
+        public  $fetch   = "";
+
+        public  $process = false;
 
 
         public function COLUMNS( string $columns = "" ): object {
@@ -89,15 +91,19 @@
 
             if( $select == true ): 
 
-                $this -> count = $count;
+                $this -> count   = $count;
                 
-                $this -> fetch = $fetch;
+                $this -> fetch   = $fetch;
+
+                $this -> process = true;
 
             else: 
 
-                $this -> count = false;
+                $this -> count   = false;
 
-                $this -> fetch = false;
+                $this -> fetch   = false;
+
+                $this -> process = true;
 
             endif;
 
